@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>PostMaster</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">PostMaster</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="container">
+        <h1 class="my-3">Welcome to PostMaster</h1>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- url box -->
+        <div class="form-group row">
+            <label for="url" class="col-sm-2 col-form-label">URL</label>
+            <div class="col-sm-10">
+                <input type="url" class="form-control" id="urlField" placeholder="Enter URL here">
+            </div>
+        </div>
+
+        <!-- get and post option -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class=" col-form-label col-sm-2 pt-0">Request Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="request" id="getType" value="GET" checked>
+                        <label class="form-check-label" for="getType">
+                            GET
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="request" id="postType" value="POST">
+                        <label class="form-check-label" for="postType">
+                            POST
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- content type- json and txt option -->
+        <fieldset class="form-group" id="contentTypeDiv">
+            <div class="row">
+                <legend class=" col-form-label col-sm-2 pt-0">Content Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="content" id="jsonRadio" value="JSON" checked>
+                        <label class="form-check-label" for="jsonRadio">
+                            JSON
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="content" id="paramsRadio" value="params">
+                        <label class="form-check-label" for="paramsRadio">
+                            Custom Parameters
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- parameters box when custom parameters is selected-->
+        <div id="parametersBox">
+            <div class="row" id="deleteParamDiv1">
+                <label class=" col-form-label col-sm-2 pt-0 py-2">Parameters 1</label>
+                <div class="col">
+                    <input type="text" class="form-control" id="parametersKey1" placeholder="Key">
+                </div>
+                <div class="col mr-3">
+                    <input type="text" class="form-control" id="parametersValue1" placeholder="Value">
+                </div>
+                <button id="addParams" class="btn btn-primary">+</button>
+            </div>
+            <div id="params"></div>
+        </div>
+
+        <!-- json request box when json is selected -->
+        <div id="jsonRequestBox">
+            <div class="form-group row my-3">
+                <label for="jsonRequestText" class="col-sm-2 col-form-label">Enter JSON</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="jsonRequestText" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- submit button -->
+        <div class="form-group row my-3">
+            <div class="col-sm-10 ">
+                <button id="submit" class="btn btn-primary" style="margin-left: 228px;">Submit</button>
+            </div>
+        </div>
+
+        <!-- Response Text -->
+        <div class="form-group row my-3" >
+            <label for="jsonResponseText" class="col-sm-2 col-form-label" >Response</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="jsonResponseText" rows="8" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
